@@ -17,7 +17,7 @@ function createNewPost() {
 <template>
     <v-dialog v-model="postStore.createNewPostDialog">
         <v-card>
-            <v-card-title>Create a new post</v-card-title>
+            <v-card-title class="text-center">Create a new post</v-card-title>
             <v-card-text>
                 <v-text-field v-model="title" label="Title" />
                 <v-textarea v-model="description" label="Description" />
