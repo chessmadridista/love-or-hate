@@ -39,6 +39,9 @@ function login() {
           <v-card-actions>
             <v-btn variant="elevated" color="primary" block @click="login">Login</v-btn>
           </v-card-actions>
+          <div class="d-flex justify-center mt-2">
+            <router-link to="/signup">Create a new account</router-link>
+          </div>
         </v-card>
       </v-col>
     </v-row>
