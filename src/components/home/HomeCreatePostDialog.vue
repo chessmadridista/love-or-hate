@@ -3,6 +3,7 @@ import { usePostStore, useGeneralStore } from '@/stores'
 import { ref } from 'vue'
 
 const title = ref('')
+const description = ref('')
 const generalStore = useGeneralStore()
 const postStore = usePostStore()
 
@@ -19,11 +20,12 @@ function createNewPost() {
             <v-card-title>Create a new post</v-card-title>
             <v-card-text>
                 <v-text-field v-model="title" label="Title" />
-                <v-btn @click="createNewPost" block color="primary" prepend-icon="mdi-check">
-                    Create
-                </v-btn>
+                <v-textarea v-model="description" label="Description" />
             </v-card-text>
             <v-card-actions>
+                <v-btn variant="elevated" @click="createNewPost" block color="primary" prepend-icon="mdi-check">
+                    Create
+                </v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
