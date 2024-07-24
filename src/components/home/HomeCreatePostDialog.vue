@@ -1,41 +1,25 @@
 <script setup>
-import { useBucketListStore, useGeneralStore } from '@/stores'
-import { ref, inject } from 'vue'
+import { usePostStore, useGeneralStore } from '@/stores'
+import { ref } from 'vue'
 
-const axios = inject('axios')
 const title = ref('')
 const generalStore = useGeneralStore()
-const bucketListStore = useBucketListStore()
+const postStore = usePostStore()
 
-function createNewTask() {
-    const endPoint = '/bucket-list/create-bucket-list'
-    const formData = new FormData()
-    formData.append('title', title.value)
-    axios.post(endPoint, formData)
-        .then(response => {
-            console.log(response);
-            generalStore.setSnackbarMessage(response.data.message)
-            generalStore.setSnackbarColor('success')
-            bucketListStore.hideCreateNewBucketDialog()
-            title.value = ''
-        })
-        .catch(error => {
-            console.error(error);
-            generalStore.setSnackbarMessage(error)
-            generalStore.setSnackbarColor('error')
-        })
-        .finally(() => {
-            generalStore.showSnackbar()
-        })
+function createNewPost() {
+    generalStore.setSnackbarMessage("The post has been created successfully.")
+    generalStore.setSnackbarColor("success")
+    generalStore.showSnackbar()
+    postStore.hideCreateNewPostDialog()
 }
 </script>
 <template>
-    <v-dialog v-model="bucketListStore.createNewBucketDialog">
+    <v-dialog v-model="postStore.createNewPostDialog">
         <v-card>
-            <v-card-title>Create new bucket</v-card-title>
+            <v-card-title>Create a new post</v-card-title>
             <v-card-text>
                 <v-text-field v-model="title" label="Title" />
-                <v-btn @click="createNewTask" block color="primary" prepend-icon="mdi-check">
+                <v-btn @click="createNewPost" block color="primary" prepend-icon="mdi-check">
                     Create
                 </v-btn>
             </v-card-text>
