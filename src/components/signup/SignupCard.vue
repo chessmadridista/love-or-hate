@@ -36,6 +36,9 @@ function signup() {
           <v-card-actions>
             <v-btn variant="elevated" color="primary" block @click="signup">Signup</v-btn>
           </v-card-actions>
+          <div class="d-flex justify-center mt-2">
+            <router-link to="/login">Already a user?</router-link>
+          </div>
         </v-card>
       </v-col>
     </v-row>
