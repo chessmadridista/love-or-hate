@@ -1,15 +1,16 @@
 <script setup>
+import { usePostStore } from '@/stores'
+
+const postStore = usePostStore()
 </script>
 <template>
     <v-container>
-        <v-row>
+        <v-row v-for="post in postStore.posts" :key="post.id">
             <v-col>
                 <v-card>
-                    <v-card-title>
-                        Feed
-                    </v-card-title>
+                    <v-card-title>{{ post.title }}</v-card-title>
                     <v-card-text>
-                        Welcome @admin
+                        {{ post.description }}
                     </v-card-text>
                 </v-card>
             </v-col>

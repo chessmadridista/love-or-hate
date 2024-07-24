@@ -8,6 +8,19 @@ const generalStore = useGeneralStore()
 const postStore = usePostStore()
 
 function createNewPost() {
+    const post = {
+        id: postStore.posts.length,
+        username: '@admin',
+        usernameDpSrc: 'https://i.pinimg.com/736x/6e/d1/b6/6ed1b66ad6fa5e395fe18eb4a88f790d.jpg',
+        title: title.value,
+        description: description.value,
+        noOfLoves: 10,
+        noOfHates: 8,
+        loveToHateRatio: 1.25,
+        noOfComments: 25,
+        noOfShares: 5,
+    }
+    postStore.createNewPost(post)
     generalStore.setSnackbarMessage("The post has been created successfully.")
     generalStore.setSnackbarColor("success")
     generalStore.showSnackbar()
