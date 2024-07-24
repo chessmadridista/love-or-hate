@@ -1,9 +1,8 @@
 <script setup>
 import { useGeneralStore } from '@/stores'
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 
-const axios = inject('axios')
 const generalStore = useGeneralStore()
 const firstName = ref('')
 const lastName = ref('')
@@ -12,36 +11,11 @@ const username = ref('')
 const password = ref('')
 const router = useRouter()
 
-function getFormData() {
-  const formData = new FormData()
-  formData.append('first_name', firstName.value)
-  formData.append('last_name', lastName.value)
-  formData.append('email', email.value)
-  formData.append('username', username.value)
-  formData.append('password', password.value)
-
-  return formData
-}
-
 function signup() {
-  const endPoint = '/signup'
-  const formData = getFormData()
-  axios
-    .post(endPoint, formData)
-    .then((response) => {
-      console.log(response)
-      generalStore.setSnackbarMessage(response.data.message)
-      generalStore.setSnackbarColor('success')
-      router.push('login')
-    })
-    .catch((error) => {
-      console.error(error)
-      generalStore.setSnackbarMessage(error.response.data.message)
-      generalStore.setSnackbarColor('error')
-    })
-    .finally(() => {
-      generalStore.showSnackbar()
-    })
+  generalStore.setSnackbarMessage("You have successfully signed up.")
+  generalStore.setSnackbarColor("success")
+  generalStore.showSnackbar()
+  router.push('/login')
 }
 </script>
 <template>
