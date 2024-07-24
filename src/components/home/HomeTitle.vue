@@ -24,10 +24,12 @@ onBeforeMount(() => {
         <v-row>
             <v-col>
                 <v-card>
-                    <v-card-title class="text-center">
-                        <v-icon color="primary">mdi-bucket</v-icon> Your bucket lists with {{ partnerUsername }}
-                        <v-icon color="primary">mdi-bucket</v-icon>
+                    <v-card-title>
+                        Feed
                     </v-card-title>
+                    <v-card-text>
+                        Welcome @admin
+                    </v-card-text>
                 </v-card>
             </v-col>
         </v-row>
