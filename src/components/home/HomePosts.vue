@@ -14,8 +14,8 @@ const postStore = usePostStore()
                     <v-card-subtitle>
                         {{ post.dateCreated }} | <v-icon color="green">mdi-heart</v-icon>:<v-icon color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
                     </v-card-subtitle>
-                    <v-card-title>{{ post.title }}</v-card-title>
-                    <v-card-text>
+                    <v-card-title class="font-weight-bold">{{ post.title }}</v-card-title>
+                    <v-card-text class="text-grey-darken-2">
                         {{ post.description }}
                     </v-card-text>
                     <v-card-actions>
