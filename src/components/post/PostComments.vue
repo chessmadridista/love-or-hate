@@ -72,30 +72,34 @@ const commentsOfHate = ref([
 const newCommentOfLove = ref('')
 const newCommentOfHate = ref('')
 
-function addNewCommentOfLove() {
-    const commentOfLove = {
-        id: commentsOfLove.length,
-        username: 'admin',
-        usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
-        body: newCommentOfLove.value,
-        noOfLikes: 4,
-        noOfComments: 7,
+function addNewCommentOfLove(event) {
+    if (!event.shiftKey) {
+        const commentOfLove = {
+            id: commentsOfLove.length,
+            username: 'admin',
+            usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
+            body: newCommentOfLove.value,
+            noOfLikes: 4,
+            noOfComments: 7,
+        }
+        commentsOfLove.value.push(commentOfLove)
+        newCommentOfLove.value = ''
     }
-    commentsOfLove.value.push(commentOfLove)
-    newCommentOfLove.value = ''
 }
 
-function addNewCommentOfHate() {
-    const commentOfHate = {
-        id: commentsOfLove.length,
-        username: 'admin',
-        usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
-        body: newCommentOfHate.value,
-        noOfLikes: 4,
-        noOfComments: 7,
+function addNewCommentOfHate(event) {
+    if (!event.shiftKey) {
+        const commentOfHate = {
+            id: commentsOfLove.length,
+            username: 'admin',
+            usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
+            body: newCommentOfHate.value,
+            noOfLikes: 4,
+            noOfComments: 7,
+        }
+        commentsOfHate.value.push(commentOfHate)
+        newCommentOfHate.value = ''
     }
-    commentsOfHate.value.push(commentOfHate)
-    newCommentOfHate.value = ''
 }
 </script>
 <template>
@@ -124,6 +128,7 @@ function addNewCommentOfHate() {
                                 label="Add a comment"
                                 rows="1"
                                 auto-grow
+                                @keyup.enter="addNewCommentOfHate"
                             />
                             <v-btn @click="addNewCommentOfHate" block color="red">Comment</v-btn>
                     </v-card-text>
@@ -152,6 +157,7 @@ function addNewCommentOfHate() {
                             label="Add a comment"
                             rows="1"
                             auto-grow
+                            @keyup.enter="addNewCommentOfLove"
                         />
                         <v-btn @click="addNewCommentOfLove" block color="green">Comment</v-btn>
                     </v-card-text>
