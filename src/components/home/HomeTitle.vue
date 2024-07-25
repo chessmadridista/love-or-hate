@@ -5,11 +5,11 @@
         <v-row>
             <v-col>
                 <v-card>
-                    <v-card-title>
+                    <v-card-title class="font-weight-bold text-blue-darken-2">
                         Feed
                     </v-card-title>
                     <v-card-text>
-                        Welcome @admin
+                        Welcome <span class="font-weight-bold text-blue-grey-darken-1">@admin</span>
                     </v-card-text>
                 </v-card>
             </v-col>
