@@ -7,7 +7,7 @@ const postStore = usePostStore()
     <v-container>
         <v-row v-for="post in postStore.posts" :key="post.id">
             <v-col>
-                <v-card class="pa-4">
+                <v-card class="pa-4" :to="'/posts/'+post.id">
                     <v-container>
                         <v-avatar :image="post.usernameDpSrc" size="small" /><span class="ml-2">{{ post.username }}</span>
                     </v-container>
