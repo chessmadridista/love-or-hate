@@ -87,12 +87,17 @@ const commentsOfHate = [
                                 <v-icon end size="small" color="red">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
                             </v-card-actions>
                         </v-card>
+                        <v-textarea 
+                            class="mt-6"
+                            density="compact"
+                            variant="outlined"
+                            color="red"
+                                label="Add a comment"
+                                rows="1"
+                                auto-grow
+                            />
+                            <v-btn block color="red">Comment</v-btn>
                     </v-card-text>
-                    <v-card-actions>
-                        <v-btn block color="red">
-                            <v-icon start>mdi-plus</v-icon>Add new comment
-                        </v-btn>
-                    </v-card-actions>
                 </v-card>
             </v-col>
             <v-col cols="6">
@@ -109,12 +114,17 @@ const commentsOfHate = [
                                 <v-icon end size="small" color="green">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
                             </v-card-actions>
                         </v-card>
+                        <v-textarea 
+                        class="mt-6"
+                        density="compact"
+                        variant="outlined"
+                        color="green"
+                            label="Add a comment"
+                            rows="1"
+                            auto-grow
+                        />
+                        <v-btn block color="green">Comment</v-btn>
                     </v-card-text>
-                    <v-card-actions>
-                        <v-btn block color="green">
-                            <v-icon start>mdi-plus</v-icon>Add new comment
-                        </v-btn>
-                    </v-card-actions>
                 </v-card>
             </v-col>
         </v-row>
