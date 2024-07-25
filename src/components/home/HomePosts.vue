@@ -20,9 +20,9 @@ const postStore = usePostStore()
                     </v-card-text>
                     <v-card-actions>
                         <v-icon color="green">mdi-heart</v-icon>{{ post.noOfLoves }}
-                        <v-icon color="red" class="ml-2">mdi-heart-broken</v-icon>{{ post.noOfHates }}
-                        <v-icon color="yellow" class="ml-2">mdi-comment-outline</v-icon>{{ post.noOfComments }}
-                        <v-icon color="blue" class="ml-2">mdi-share</v-icon>{{ post.noOfHates }}
+                        <v-icon color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}
+                        <v-icon color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
+                        <v-icon color="blue" end>mdi-share</v-icon>{{ post.noOfHates }}
                     </v-card-actions>
                 </v-card>
             </v-col>
