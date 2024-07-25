@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const commentsOfLove = [
+const commentsOfLove = ref([
     {
         id: 0,
         username: 'admin',
@@ -42,8 +42,8 @@ const commentsOfLove = [
         noOfLikes: 4,
         noOfComments: 7,
     },
-]
-const commentsOfHate = [
+])
+const commentsOfHate = ref([
     {
         id: 0,
         username: 'admin',
@@ -68,7 +68,35 @@ const commentsOfHate = [
         noOfLikes: 4,
         noOfComments: 7,
     },
-]
+])
+const newCommentOfLove = ref('')
+const newCommentOfHate = ref('')
+
+function addNewCommentOfLove() {
+    const commentOfLove = {
+        id: commentsOfLove.length,
+        username: 'admin',
+        usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
+        body: newCommentOfLove.value,
+        noOfLikes: 4,
+        noOfComments: 7,
+    }
+    commentsOfLove.value.push(commentOfLove)
+    newCommentOfLove.value = ''
+}
+
+function addNewCommentOfHate() {
+    const commentOfHate = {
+        id: commentsOfLove.length,
+        username: 'admin',
+        usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
+        body: newCommentOfHate.value,
+        noOfLikes: 4,
+        noOfComments: 7,
+    }
+    commentsOfHate.value.push(commentOfHate)
+    newCommentOfHate.value = ''
+}
 </script>
 <template>
     <v-container>
@@ -88,6 +116,7 @@ const commentsOfHate = [
                             </v-card-actions>
                         </v-card>
                         <v-textarea 
+                        v-model="newCommentOfHate"
                             class="mt-6"
                             density="compact"
                             variant="outlined"
@@ -96,7 +125,7 @@ const commentsOfHate = [
                                 rows="1"
                                 auto-grow
                             />
-                            <v-btn block color="red">Comment</v-btn>
+                            <v-btn @click="addNewCommentOfHate" block color="red">Comment</v-btn>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -115,6 +144,7 @@ const commentsOfHate = [
                             </v-card-actions>
                         </v-card>
                         <v-textarea 
+                        v-model="newCommentOfLove"
                         class="mt-6"
                         density="compact"
                         variant="outlined"
@@ -123,7 +153,7 @@ const commentsOfHate = [
                             rows="1"
                             auto-grow
                         />
-                        <v-btn block color="green">Comment</v-btn>
+                        <v-btn @click="addNewCommentOfLove" block color="green">Comment</v-btn>
                     </v-card-text>
                 </v-card>
             </v-col>
