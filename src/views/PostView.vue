@@ -1,11 +1,28 @@
 <script setup>
+import { onBeforeMount, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { usePostStore } from '@/stores'
 
+const post = ref({})
+const router = useRouter()
 const postStore = usePostStore()
+
+function getSelectedPost() {
+    const postId = router.currentRoute.value.params.id
+    const selectedPost = postStore.posts.filter((post) => {
+        return post.id == postId
+    })[0]
+    
+    return selectedPost
+}
+
+onBeforeMount(() => {
+    post.value = getSelectedPost()  
+})
 </script>
 <template>
     <v-container>
-        <v-row v-for="post in postStore.posts" :key="post.id">
+        <v-row>
             <v-col>
                 <v-card class="pa-4">
                     <v-container>
@@ -14,9 +31,7 @@ const postStore = usePostStore()
                     <v-card-subtitle>
                         {{ post.dateCreated }} | <v-icon size="x-small" color="green">mdi-heart</v-icon>:<v-icon size="x-small" color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
                     </v-card-subtitle>
-                    <router-link class="text-blue-darken-4" :to="'/post/'+post.id">
-                        <v-card-title class="font-weight-bold">{{ post.title }}</v-card-title>
-                    </router-link>
+                    <v-card-title class="font-weight-bold">{{ post.title }}</v-card-title>
                     <v-card-text class="text-grey-darken-2">
                         {{ post.description }}
                     </v-card-text>
