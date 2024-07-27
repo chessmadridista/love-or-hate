@@ -18,6 +18,8 @@ export const usePostStore = defineStore('postStore', () => {
             loveToHateRatio: 1.25,
             noOfComments: 25,
             noOfShares: 5,
+            loggedInUserLovesPost: false,
+            loggedInUserHatesPost: false,
         },
         {
             id: 1,
@@ -31,6 +33,8 @@ export const usePostStore = defineStore('postStore', () => {
             loveToHateRatio: 1.25,
             noOfComments: 25,
             noOfShares: 5,
+            loggedInUserLovesPost: false,
+            loggedInUserHatesPost: false,
         },
     ])
 

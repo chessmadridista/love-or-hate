@@ -6,11 +6,33 @@ const postStore = usePostStore()
 const router = useRouter()
 
 function lovePost(post) {
-    post.noOfLoves += 1
+    if (post.loggedInUserLovesPost === false) {
+        if (post.loggedInUserHatesPost === true) {
+            post.noOfHates -= 1
+            post.loggedInUserHatesPost = false
+        } 
+
+        post.noOfLoves += 1
+        post.loggedInUserLovesPost = true
+    } else {
+        post.noOfLoves -= 1
+        post.loggedInUserLovesPost = false
+    }
 }
 
 function hatePost(post) {
-    post.noOfHates += 1
+    if (post.loggedInUserHatesPost === false) {
+        if (post.loggedInUserLovesPost === true) {
+            post.noOfLoves -= 1
+            post.loggedInUserLovesPost = false
+        } 
+
+        post.noOfHates += 1
+        post.loggedInUserHatesPost = true
+    } else {
+        post.noOfHates -= 1
+        post.loggedInUserHatesPost = false
+    }
 }
 
 function commentOnPost(post) {
