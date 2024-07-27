@@ -1,7 +1,25 @@
 <script setup>
-import { usePostStore } from '@/stores'
+import {ref} from 'vue'
+import { useGeneralStore, usePostStore } from '@/stores'
 
+const generalStore = useGeneralStore()
 const postStore = usePostStore()
+
+function copyToClipboard() {
+    navigator.clipboard.writeText(postStore.postLinkToShare)
+    .then(() => {
+        generalStore.setSnackbarMessage("The link has been copied successfully.")
+        generalStore.setSnackbarColor("success")
+    })
+    .catch((error) => {
+        generalStore.setSnackbarMessage(error)
+        generalStore.setSnackbarColor("error")
+
+    })
+    .finally(() => {
+        generalStore.showSnackbar()
+    });
+}
 </script>
 <template>
     <v-dialog max-width="500" v-model="postStore.postShareDialog">
@@ -18,6 +36,7 @@ const postStore = usePostStore()
                 <v-btn
                     color="primary"
                     variant="outlined"
+                    @click="copyToClipboard"
                 >
                     Copy link to clipboard
                 </v-btn>
