@@ -16,6 +16,18 @@ function getSelectedPost() {
     return selectedPost
 }
 
+function lovePost(post) {
+    post.noOfLoves += 1
+}
+
+function hatePost(post) {
+    post.noOfHates += 1
+}
+
+function sharePost(post) {
+
+}
+
 onBeforeMount(() => {
     post.value = getSelectedPost()  
 })
@@ -36,10 +48,10 @@ onBeforeMount(() => {
                         {{ post.description }}
                     </v-card-text>
                     <v-card-actions>
-                        <v-icon size="small" color="green">mdi-heart</v-icon>{{ post.noOfLoves }}
-                        <v-icon size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}
+                        <v-icon @click="lovePost(post)" size="small" color="green">mdi-heart</v-icon>{{ post.noOfLoves }}
+                        <v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}
                         <v-icon size="small" color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
-                        <v-icon size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfHates }}
+                        <v-icon @click="sharePost(post)" size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfShares }}
                     </v-card-actions>
                 </v-card>
             </v-col>
