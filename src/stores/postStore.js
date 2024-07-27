@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 
 export const usePostStore = defineStore('postStore', () => {
     const createNewPostDialog = ref(false);
+    const postShareDialog = ref(false);
+    const postLinkToShare = ref('');
     const posts = ref([
         {
             id: 0,
@@ -16,6 +18,8 @@ export const usePostStore = defineStore('postStore', () => {
             loveToHateRatio: 1.25,
             noOfComments: 25,
             noOfShares: 5,
+            loggedInUserLovesPost: false,
+            loggedInUserHatesPost: false,
         },
         {
             id: 1,
@@ -29,6 +33,8 @@ export const usePostStore = defineStore('postStore', () => {
             loveToHateRatio: 1.25,
             noOfComments: 25,
             noOfShares: 5,
+            loggedInUserLovesPost: false,
+            loggedInUserHatesPost: false,
         },
     ])
 
@@ -44,11 +50,23 @@ export const usePostStore = defineStore('postStore', () => {
         createNewPostDialog.value = false
     }
 
+    function showPostShareDialog() {
+        postShareDialog.value = true
+    }
+
+    function setPostLinkToShare(link) {
+        postLinkToShare.value = link
+    }
+
     return {
         createNewPostDialog,
+        postShareDialog,
         posts,
+        postLinkToShare,
+        showPostShareDialog,
         showCreateNewPostDialog,
         hideCreateNewPostDialog,
         createNewPost,
+        setPostLinkToShare,
     }
 })

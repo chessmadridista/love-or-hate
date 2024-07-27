@@ -1,7 +1,52 @@
 <script setup>
 import { usePostStore } from '@/stores'
+import { useRouter } from 'vue-router'
 
 const postStore = usePostStore()
+const router = useRouter()
+
+function lovePost(post) {
+    if (post.loggedInUserLovesPost === false) {
+        if (post.loggedInUserHatesPost === true) {
+            post.noOfHates -= 1
+            post.loggedInUserHatesPost = false
+        } 
+
+        post.noOfLoves += 1
+        post.loggedInUserLovesPost = true
+    } else {
+        post.noOfLoves -= 1
+        post.loggedInUserLovesPost = false
+    }
+}
+
+function hatePost(post) {
+    if (post.loggedInUserHatesPost === false) {
+        if (post.loggedInUserLovesPost === true) {
+            post.noOfLoves -= 1
+            post.loggedInUserLovesPost = false
+        } 
+
+        post.noOfHates += 1
+        post.loggedInUserHatesPost = true
+    } else {
+        post.noOfHates -= 1
+        post.loggedInUserHatesPost = false
+    }
+}
+
+function commentOnPost(post) {
+    router.push(`/post/${post.id}`)
+}
+
+function sharePost(post) {
+    const originPath = window.location.origin
+    const postPath = `/post/${post.id}`
+    const fullPostPath = originPath + postPath
+    postStore.setPostLinkToShare(fullPostPath)
+    postStore.showPostShareDialog()
+}
+
 </script>
 <template>
     <v-container>
@@ -21,10 +66,12 @@ const postStore = usePostStore()
                         {{ post.description }}
                     </v-card-text>
                     <v-card-actions>
-                        <v-icon size="small" color="green">mdi-heart</v-icon>{{ post.noOfLoves }}
-                        <v-icon size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}
-                        <v-icon size="small" color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
-                        <v-icon size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfHates }}
+                        <span v-if="post.loggedInUserHatesPost"><v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}</span>
+                        <span v-else><v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken-outline</v-icon>{{ post.noOfHates }}</span>
+                        <span v-if="post.loggedInUserLovesPost"><v-icon @click="lovePost(post)" size="small" color="green" end>mdi-heart</v-icon>{{ post.noOfLoves }}</span>
+                        <span v-else><v-icon @click="lovePost(post)" size="small" color="green" end>mdi-heart-outline</v-icon>{{ post.noOfLoves }}</span>
+                        <v-icon @click="commentOnPost(post)" size="small" color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
+                        <v-icon @click="sharePost(post)" size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfShares }}
                     </v-card-actions>
                 </v-card>
             </v-col>
