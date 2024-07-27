@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 
 export const usePostStore = defineStore('postStore', () => {
     const createNewPostDialog = ref(false);
+    const postShareDialog = ref(false);
+    const postLinkToShare = ref('');
     const posts = ref([
         {
             id: 0,
@@ -44,11 +46,23 @@ export const usePostStore = defineStore('postStore', () => {
         createNewPostDialog.value = false
     }
 
+    function showPostShareDialog() {
+        postShareDialog.value = true
+    }
+
+    function setPostLinkToShare(link) {
+        postLinkToShare.value = link
+    }
+
     return {
         createNewPostDialog,
+        postShareDialog,
         posts,
+        postLinkToShare,
+        showPostShareDialog,
         showCreateNewPostDialog,
         hideCreateNewPostDialog,
         createNewPost,
+        setPostLinkToShare,
     }
 })

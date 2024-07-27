@@ -24,8 +24,12 @@ function hatePost(post) {
     post.noOfHates += 1
 }
 
-function sharePost(post) {
-
+function sharePost() {
+    const originPath = window.location.origin
+    const postPath = router.currentRoute.value.fullPath
+    const fullPostPath = originPath + postPath
+    postStore.setPostLinkToShare(fullPostPath)
+    postStore.showPostShareDialog()
 }
 
 onBeforeMount(() => {
@@ -51,7 +55,7 @@ onBeforeMount(() => {
                         <v-icon @click="lovePost(post)" size="small" color="green">mdi-heart</v-icon>{{ post.noOfLoves }}
                         <v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}
                         <v-icon size="small" color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
-                        <v-icon @click="sharePost(post)" size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfShares }}
+                        <v-icon @click="sharePost" size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfShares }}
                     </v-card-actions>
                 </v-card>
             </v-col>
