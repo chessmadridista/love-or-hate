@@ -68,8 +68,8 @@ function sharePost(post) {
                     <v-card-actions>
                         <span v-if="post.loggedInUserHatesPost"><v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken</v-icon>{{ post.noOfHates }}</span>
                         <span v-else><v-icon @click="hatePost(post)" size="small" color="red" end>mdi-heart-broken-outline</v-icon>{{ post.noOfHates }}</span>
-                        <span v-if="post.loggedInUserLovesPost"><v-icon @click="lovePost(post)" size="small" color="green">mdi-heart</v-icon>{{ post.noOfLoves }}</span>
-                        <span v-else><v-icon @click="lovePost(post)" size="small" color="green">mdi-heart-outline</v-icon>{{ post.noOfLoves }}</span>
+                        <span v-if="post.loggedInUserLovesPost"><v-icon @click="lovePost(post)" size="small" color="green" end>mdi-heart</v-icon>{{ post.noOfLoves }}</span>
+                        <span v-else><v-icon @click="lovePost(post)" size="small" color="green" end>mdi-heart-outline</v-icon>{{ post.noOfLoves }}</span>
                         <v-icon @click="commentOnPost(post)" size="small" color="yellow" end>mdi-comment-outline</v-icon>{{ post.noOfComments }}
                         <v-icon @click="sharePost(post)" size="small" color="blue" end>mdi-share</v-icon>{{ post.noOfShares }}
                     </v-card-actions>
