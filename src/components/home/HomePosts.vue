@@ -9,7 +9,7 @@ const postStore = usePostStore()
             <v-col>
                 <v-card class="pa-4">
                     <v-container>
-                        <v-avatar :image="post.usernameDpSrc" size="small" /><span class="ml-2">{{ post.username }}</span>
+                        <v-avatar :image="post.usernameDpSrc" size="small" /><router-link :to="'/username/'+post.username"><span class="ml-2">@{{ post.username }}</span></router-link>
                     </v-container>
                     <v-card-subtitle>
                         {{ post.dateCreated }} | <v-icon size="x-small" color="green">mdi-heart</v-icon>:<v-icon size="x-small" color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
@@ -31,3 +31,12 @@ const postStore = usePostStore()
         </v-row>
     </v-container>
 </template>
+<style scoped>
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: underline;
+}
+</style>

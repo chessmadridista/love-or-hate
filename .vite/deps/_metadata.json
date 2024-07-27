@@ -1,0 +1,76 @@
+{
+  "hash": "9d9efa37",
+  "configHash": "b4e4a8a5",
+  "lockfileHash": "6baafccd",
+  "browserHash": "07bf84ed",
+  "optimized": {
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "a5d53c76",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "6127f660",
+      "needsInterop": false
+    },
+    "vuetify": {
+      "src": "../../node_modules/vuetify/lib/framework.mjs",
+      "file": "vuetify.js",
+      "fileHash": "7b273446",
+      "needsInterop": false
+    },
+    "vuetify/components": {
+      "src": "../../node_modules/vuetify/lib/components/index.mjs",
+      "file": "vuetify_components.js",
+      "fileHash": "7e6324cd",
+      "needsInterop": false
+    },
+    "vuetify/directives": {
+      "src": "../../node_modules/vuetify/lib/directives/index.mjs",
+      "file": "vuetify_directives.js",
+      "fileHash": "804d16a7",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "4b1ca977",
+      "needsInterop": false
+    },
+    "vue-axios": {
+      "src": "../../node_modules/vue-axios/dist/vue-axios.esm.min.js",
+      "file": "vue-axios.js",
+      "fileHash": "9153a84c",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "875983b4",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-6NOJY5CA": {
+      "file": "chunk-6NOJY5CA.js"
+    },
+    "chunk-G5Z3VYLZ": {
+      "file": "chunk-G5Z3VYLZ.js"
+    },
+    "chunk-PJWNG63C": {
+      "file": "chunk-PJWNG63C.js"
+    },
+    "chunk-AYVSL3LM": {
+      "file": "chunk-AYVSL3LM.js"
+    },
+    "chunk-Q5PGHB6G": {
+      "file": "chunk-Q5PGHB6G.js"
+    },
+    "chunk-PZ5AY32C": {
+      "file": "chunk-PZ5AY32C.js"
+    }
+  }
+}

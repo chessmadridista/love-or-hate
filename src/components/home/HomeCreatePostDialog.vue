@@ -10,7 +10,7 @@ const postStore = usePostStore()
 function createNewPost() {
     const post = {
         id: postStore.posts.length,
-        username: '@admin',
+        username: 'admin',
         usernameDpSrc: 'https://images2.alphacoders.com/649/649995.jpg',
         dateCreated: 'Today',
         title: title.value,
