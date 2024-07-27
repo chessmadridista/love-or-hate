@@ -18,7 +18,11 @@ function commentOnPost(post) {
 }
 
 function sharePost(post) {
-    
+    const originPath = window.location.origin
+    const postPath = `/post/${post.id}`
+    const fullPostPath = originPath + postPath
+    postStore.setPostLinkToShare(fullPostPath)
+    postStore.showPostShareDialog()
 }
 
 </script>
