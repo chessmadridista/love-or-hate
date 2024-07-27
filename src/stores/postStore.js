@@ -6,7 +6,7 @@ export const usePostStore = defineStore('postStore', () => {
     const posts = ref([
         {
             id: 0,
-            username: '@admin',
+            username: 'admin',
             usernameDpSrc: 'https://images2.alphacoders.com/649/649995.jpg',
             dateCreated: 'Today',
             title: 'Real Madrid is the greatest club in the world.',
@@ -19,7 +19,7 @@ export const usePostStore = defineStore('postStore', () => {
         },
         {
             id: 1,
-            username: '@admin',
+            username: 'admin',
             usernameDpSrc: 'https://images2.alphacoders.com/649/649995.jpg',
             dateCreated: 'Today',
             title: 'UEFA Champions League should be revamped.',
