@@ -1,8 +1,8 @@
 <script setup>
 import UserBio from '@/components/user/UserBio.vue'
-import UserTabs from '@/components/user/UserTabs.vue'
+import UserTabsPostsAndComments from '@/components/user/UserTabsPostsAndComments.vue'
 </script>
 <template>
     <UserBio />
-    <UserTabs />
+    <UserTabsPostsAndComments />
 </template>

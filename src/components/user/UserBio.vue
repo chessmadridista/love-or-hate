@@ -3,7 +3,7 @@ import {useRouter} from 'vue-router'
 
 const router = useRouter()
 const username = router.currentRoute.value.params.username
-const bio = 'Looking to make this world a better place when I leave this world.'
+const bio = 'Looking to make this world a better place when I leave it.'
 </script>
 <template>
     <v-container>

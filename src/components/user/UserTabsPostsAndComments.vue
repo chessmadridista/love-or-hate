@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue'
+import UserPosts from '@/components/user/UserPosts.vue'
+import UserComments from '@/components/user/UserComments.vue'
 
 const tab = ref('posts')
 </script>
