@@ -124,7 +124,7 @@ function addNewCommentOfHate(event) {
                         />
                             <v-btn @click="addNewCommentOfHate" block color="red">Comment</v-btn>
                         <v-card class="mt-2 pt-2 bg-red-lighten-4" v-for="comment in commentsOfHate" :key="comment.id">
-                            <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/username/'+comment.username"><span class="text-red-darken-4">@{{ comment.username }}</span></router-link>
+                            <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/user/'+comment.username"><span class="text-red-darken-4">@{{ comment.username }}</span></router-link>
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
                                 <v-icon end size="small" color="red">mdi-thumb-up</v-icon>{{ comment.noOfLikes }}
@@ -153,7 +153,7 @@ function addNewCommentOfHate(event) {
                         />
                         <v-btn @click="addNewCommentOfLove" block color="green">Comment</v-btn>
                         <v-card class="mt-2 pt-2 bg-green-lighten-4" v-for="comment in commentsOfLove" :key="comment.id">
-                            <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/username/'+comment.username"><span class="text-green-darken-4">@{{ comment.username }}</span></router-link>
+                            <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/user/'+comment.username"><span class="text-green-darken-4">@{{ comment.username }}</span></router-link>
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
                                 <v-icon end size="small" color="green">mdi-thumb-up</v-icon>{{ comment.noOfLikes }}
