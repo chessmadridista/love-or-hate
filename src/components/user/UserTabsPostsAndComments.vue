@@ -21,11 +21,7 @@ const tab = ref('posts')
             <v-col>
                 <v-tabs-window v-model="tab" fixed-tabs>
                     <v-tabs-window-item value="posts">
-                        <v-card>
-                            <v-card-text>
-                                This is a post.
-                            </v-card-text>
-                        </v-card>
+                        <UserPosts />
                     </v-tabs-window-item>
                     <v-tabs-window-item value="comments">
                         <v-card>
