@@ -1,10 +1,10 @@
 <script setup>
-import UserBio from '@/components/user/UserBio.vue'
+import UserSummary from '@/components/user/UserSummary.vue'
 import UserTabsPostsAndComments from '@/components/user/UserTabsPostsAndComments.vue'
 import AppPostShareDialog from '@/components/app/AppPostShareDialog.vue';
 </script>
 <template>
-    <UserBio />
+    <UserSummary />
     <UserTabsPostsAndComments />
     <AppPostShareDialog />
 </template>
