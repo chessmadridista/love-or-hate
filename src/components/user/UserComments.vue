@@ -111,7 +111,7 @@ function addNewCommentOfHate(event) {
                         😒 Hate
                     </v-card-title>
                     <v-card-text>
-                        <v-card class="mt-2 pt-2 bg-red-lighten-4" v-for="comment in commentsOfHate" :key="comment.id">
+                        <v-card to="/post/0" class="mt-2 pt-2 bg-red-lighten-4" v-for="comment in commentsOfHate" :key="comment.id">
                             <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/user/'+comment.username"><span class="text-red-darken-4">@{{ comment.username }}</span></router-link>
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
@@ -128,7 +128,7 @@ function addNewCommentOfHate(event) {
                         😍 Love
                     </v-card-title>
                     <v-card-text>
-                        <v-card class="mt-2 pt-2 bg-green-lighten-4" v-for="comment in commentsOfLove" :key="comment.id">
+                        <v-card to="/post/1" class="mt-2 pt-2 bg-green-lighten-4" v-for="comment in commentsOfLove" :key="comment.id">
                             <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/user/'+comment.username"><span class="text-green-darken-4">@{{ comment.username }}</span></router-link>
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
@@ -145,8 +145,5 @@ function addNewCommentOfHate(event) {
 <style scoped>
 a {
     text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
 }
 </style>
