@@ -24,11 +24,7 @@ const tab = ref('posts')
                         <UserPosts />
                     </v-tabs-window-item>
                     <v-tabs-window-item value="comments">
-                        <v-card>
-                            <v-card-text>
-                                This is a comment.
-                            </v-card-text>
-                        </v-card>                        
+                        <UserComments />
                     </v-tabs-window-item>
                 </v-tabs-window>
             </v-col>
