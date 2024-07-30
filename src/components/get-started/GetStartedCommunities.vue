@@ -51,7 +51,7 @@ function changeFollowStatus(community) {
                             v-if="community.doesSignedInUserFollowThisCommunity"
                             @click="changeFollowStatus(community)"
                             size="small"
-                            variant="outlined"
+                            variant="text"
                             prepend-icon="mdi-plus"
                         >
                             Follow
