@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import PostSubComments from '@/components/post/PostSubComments.vue'
 
 const commentsOfLove = ref([
     {
@@ -9,6 +10,7 @@ const commentsOfLove = ref([
         body: 'I think Madrid is by far the best team in history mainly because of players like Valverde and Vini.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 1,
@@ -17,6 +19,7 @@ const commentsOfLove = ref([
         body: 'I think Madrid is by far the best team in history mainly because of players like Valverde and Vini.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 2,
@@ -25,6 +28,7 @@ const commentsOfLove = ref([
         body: 'I think Madrid is by far the best team in history mainly because of players like Valverde and Vini.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 3,
@@ -33,6 +37,7 @@ const commentsOfLove = ref([
         body: 'I think Madrid is by far the best team in history mainly because of players like Valverde and Vini.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 4,
@@ -41,6 +46,7 @@ const commentsOfLove = ref([
         body: 'I think Madrid is by far the best team in history mainly because of players like Valverde and Vini.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
 ])
 const commentsOfHate = ref([
@@ -51,6 +57,7 @@ const commentsOfHate = ref([
         body: 'Nah, I think Barcelona is by far the best team in history mainly because of players like Lamine Yamal and Pedri.',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 1,
@@ -59,6 +66,7 @@ const commentsOfHate = ref([
         body: 'United the best!',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
     {
         id: 2,
@@ -67,6 +75,7 @@ const commentsOfHate = ref([
         body: 'Lord Bendtner is the best!',
         noOfLikes: 4,
         noOfComments: 7,
+        showSubComments: false,
     },
 ])
 const newCommentOfLove = ref('')
@@ -101,6 +110,10 @@ function addNewCommentOfHate(event) {
         newCommentOfHate.value = ''
     }
 }
+
+function toggleSubComments(comment) {
+    comment.showSubComments = !comment.showSubComments
+}
 </script>
 <template>
     <v-container>
@@ -128,8 +141,11 @@ function addNewCommentOfHate(event) {
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
                                 <v-icon end size="small" color="red">mdi-thumb-up</v-icon>{{ comment.noOfLikes }}
-                                <v-icon end size="small" color="red">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
+                                <v-icon @click="toggleSubComments(comment)" end size="small" color="red">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
                             </v-card-actions>
+                            <v-card-text v-if="comment.showSubComments" >
+                                <PostSubComments />
+                            </v-card-text>
                         </v-card>
                     </v-card-text>
                 </v-card>
@@ -157,8 +173,11 @@ function addNewCommentOfHate(event) {
                             <v-card-text>{{ comment.body }}</v-card-text>
                             <v-card-actions>
                                 <v-icon end size="small" color="green">mdi-thumb-up</v-icon>{{ comment.noOfLikes }}
-                                <v-icon end size="small" color="green">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
+                                <v-icon @click="toggleSubComments(comment)" end size="small" color="green">mdi-comment-outline</v-icon>{{ comment.noOfComments }}
                             </v-card-actions>
+                            <v-card-text v-if="comment.showSubComments" >
+                                <PostSubComments />
+                            </v-card-text>
                         </v-card>
                     </v-card-text>
                 </v-card>
