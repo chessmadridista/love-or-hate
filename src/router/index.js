@@ -5,6 +5,7 @@ import HomeView from '../views/HomeView.vue'
 import PostView from '../views/PostView.vue'
 import UserView from '../views/UserView.vue'
 import GetStartedView from '../views/GetStartedView.vue'
+import CommunityView from '../views/CommunityView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/get-started',
       name: 'get-started',
       component: GetStartedView
+    },
+    {
+      path: '/community/:communityName',
+      name: 'community',
+      component: CommunityView
     },
   ]
 })
