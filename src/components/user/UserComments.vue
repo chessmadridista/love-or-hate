@@ -69,38 +69,6 @@ const commentsOfHate = ref([
         noOfComments: 7,
     },
 ])
-const newCommentOfLove = ref('')
-const newCommentOfHate = ref('')
-
-function addNewCommentOfLove(event) {
-    if (!event.shiftKey) {
-        const commentOfLove = {
-            id: commentsOfLove.length,
-            username: 'admin',
-            usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
-            body: newCommentOfLove.value,
-            noOfLikes: 4,
-            noOfComments: 7,
-        }
-        commentsOfLove.value.push(commentOfLove)
-        newCommentOfLove.value = ''
-    }
-}
-
-function addNewCommentOfHate(event) {
-    if (!event.shiftKey) {
-        const commentOfHate = {
-            id: commentsOfLove.length,
-            username: 'admin',
-            usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
-            body: newCommentOfHate.value,
-            noOfLikes: 4,
-            noOfComments: 7,
-        }
-        commentsOfHate.value.push(commentOfHate)
-        newCommentOfHate.value = ''
-    }
-}
 </script>
 <template>
     <v-container>
