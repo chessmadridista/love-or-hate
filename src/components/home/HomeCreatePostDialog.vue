@@ -4,8 +4,15 @@ import { ref } from 'vue'
 
 const title = ref('')
 const description = ref('')
+const community = ref()
 const generalStore = useGeneralStore()
 const postStore = usePostStore()
+const communities = [
+    'football',
+    'chess',
+    'art',
+    'writing',
+]
 
 function createNewPost() {
     const post = {
@@ -20,6 +27,7 @@ function createNewPost() {
         loveToHateRatio: 1.25,
         noOfComments: 25,
         noOfShares: 5,
+        community: community.value,
     }
     postStore.createNewPost(post)
     generalStore.setSnackbarMessage("The post has been created successfully.")
@@ -35,6 +43,11 @@ function createNewPost() {
             <v-card-text>
                 <v-text-field v-model="title" label="Title" />
                 <v-textarea v-model="description" label="Description" />
+                <v-select 
+                    v-model="community"
+                    label="Community"
+                    :items="communities"
+                />
             </v-card-text>
             <v-card-actions>
                 <v-btn variant="elevated" @click="createNewPost" block color="primary" prepend-icon="mdi-check">
