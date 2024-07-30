@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const subComments = [
+const subComments = ref([
     {
         id: 0,
         body: 'This is a new one.',
@@ -23,9 +23,37 @@ const subComments = [
         usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
         noOfLikes: 4,
     },
-]
+])
+const newSubComment = ref('')
+
+function addNewSubComment() {
+    const subComment = {
+        id: subComments.value.length,
+        body: newSubComment.value,
+        username: 'admin',
+        usernameDpSrc: 'https://i.ytimg.com/vi/Ttcwhk5E5B0/sddefault.jpg',
+        noOfLikes: 1,
+    }
+    subComments.value.push(subComment)
+    newSubComment.value = ''
+}
 </script>
 <template>
+    <v-card>
+        <v-card-text>
+            <v-textarea 
+                v-model="newSubComment"
+                density="compact"
+                variant="outlined"
+                color="primary"
+                label="Add a comment"
+                rows="1"
+                auto-grow
+                @keyup.enter="addNewSubComment"
+            />
+            <v-btn @click="addNewSubComment" block color="primary">Comment</v-btn>
+        </v-card-text>
+    </v-card>
     <v-card variant="flat" class="mt-2 pt-2" v-for="comment in subComments" :key="comment.id">
         <v-avatar size="x-small" start end :image="comment.usernameDpSrc"></v-avatar><router-link :to="'/user/'+comment.username"><span>@{{ comment.username }}</span></router-link>
         <v-card-text>{{ comment.body }}</v-card-text>
