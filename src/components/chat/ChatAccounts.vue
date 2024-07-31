@@ -88,12 +88,9 @@ function openChat(account) {
 }
 </script>
 <template>
-    <v-card height="85vh">
-        <v-card-title>
-            @admin
-        </v-card-title>
-        <v-card-text class="bg-cyan-lighten-5" >
-            <v-virtual-scroll class="pb-2" :items="accounts" height="70vh">
+    <v-card height="85vh" class="bg-cyan-lighten-5">
+        <v-card-text>
+            <v-virtual-scroll class="pb-2" :items="accounts" height="78vh">
                 <template v-slot:default="{ item: account }">
                     <v-card class="py-2 mt-2" :class="{ 'bg-cyan-lighten-4': (selectedAccountId === account.id)}" @click="openChat(account)">
                         <v-card-subtitle>
