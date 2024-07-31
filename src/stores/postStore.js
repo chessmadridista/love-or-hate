@@ -20,6 +20,7 @@ export const usePostStore = defineStore('postStore', () => {
             noOfShares: 5,
             loggedInUserLovesPost: false,
             loggedInUserHatesPost: false,
+            community: 'football',
         },
         {
             id: 1,
@@ -35,6 +36,7 @@ export const usePostStore = defineStore('postStore', () => {
             noOfShares: 5,
             loggedInUserLovesPost: false,
             loggedInUserHatesPost: false,
+            community: 'champions-league',
         },
     ])
 

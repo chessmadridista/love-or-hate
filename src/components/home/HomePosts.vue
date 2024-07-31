@@ -57,7 +57,7 @@ function sharePost(post) {
                         <v-avatar :image="post.usernameDpSrc" size="small" /><router-link :to="'/user/'+post.username"><span class="ml-2">@{{ post.username }}</span></router-link>
                     </v-container>
                     <v-card-subtitle>
-                        {{ post.dateCreated }} | <v-icon size="x-small" color="green">mdi-heart</v-icon>:<v-icon size="x-small" color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
+                        !<router-link :to="'/community/'+post.community">{{ post.community }}</router-link> | {{ post.dateCreated }} | <v-icon size="x-small" color="green">mdi-heart</v-icon>:<v-icon size="x-small" color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
                     </v-card-subtitle>
                     <router-link class="text-blue-darken-4" :to="'/post/'+post.id">
                         <v-card-title class="font-weight-bold">{{ post.title }}</v-card-title>

@@ -48,23 +48,23 @@ function changeFollowStatus(community) {
                             !{{ community.name }}
                         </router-link>
                         <v-btn
-                            v-if="community.doesSignedInUserFollowThisCommunity"
-                            @click="changeFollowStatus(community)"
-                            size="small"
-                            variant="text"
-                            prepend-icon="mdi-plus"
+                        v-if="community.doesSignedInUserFollowThisCommunity"
+                        @click="changeFollowStatus(community)"
+                        size="small"
+                        variant="tonal"
+                        prepend-icon="mdi-check"
                         >
-                            Follow
-                        </v-btn>
-                        <v-btn
-                            v-else
-                            @click="changeFollowStatus(community)"
-                            size="small"
-                            variant="tonal"
-                            prepend-icon="mdi-check"
-                        >
-                            Following
-                        </v-btn>
+                        Following
+                    </v-btn>
+                    <v-btn
+                        v-else
+                        @click="changeFollowStatus(community)"
+                        size="small"
+                        variant="text"
+                        prepend-icon="mdi-plus"
+                    >
+                        Follow
+                    </v-btn>
                     </v-card-title>
                     <v-card-text>
                         {{ community.description }}
