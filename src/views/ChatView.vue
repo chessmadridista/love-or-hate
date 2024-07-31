@@ -6,10 +6,10 @@ import ChatActiveAccountDetails from '@/components/chat/ChatActiveAccountDetails
 <template>
     <v-container fluid>
         <v-row dense >
-            <v-col cols="2">
+            <v-col cols="3">
                 <ChatAccounts />
             </v-col>
-            <v-col cols="7">
+            <v-col cols="6">
                 <ChatActiveAccountMessages />
             </v-col>
             <v-col cols="3">
