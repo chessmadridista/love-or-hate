@@ -1,4 +1,9 @@
 <script setup>
+import { useChatStore } from '@/stores'
+import { ref } from 'vue'
+
+const chatStore = useChatStore()
+const selectedAccountId = ref()
 const accounts = [
     {
         id: 0,
@@ -76,6 +81,11 @@ const accounts = [
         usernameDpScr: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGzKRhTVJ5BZR-n_7Nd4Pb5JIA_73X4hbBCJuDhUkLZ7YxBxxhfo0iqLmE66M-NJe1qSI&usqp=CAU'
     },
 ]
+
+function openChat(account) {
+    chatStore.updateSelectedAccount(account)
+    selectedAccountId.value = account.id
+}
 </script>
 <template>
     <v-card height="85vh">
@@ -83,12 +93,11 @@ const accounts = [
             @admin
         </v-card-title>
         <v-card-text class="bg-cyan-lighten-5" >
-            <v-text-field density="compact" variant="outlined" label="Search" prepend-inner-icon="mdi-magnify"></v-text-field>
-            <v-virtual-scroll :items="accounts" height="60vh">
-                <template v-slot:default="{ item }">
-                    <v-card class="py-2 mt-2">
+            <v-virtual-scroll class="pb-2" :items="accounts" height="70vh">
+                <template v-slot:default="{ item: account }">
+                    <v-card class="py-2 mt-2" :class="{ 'bg-cyan-lighten-4': (selectedAccountId === account.id)}" @click="openChat(account)">
                         <v-card-subtitle>
-                            <v-avatar start :image="item.usernameDpScr"></v-avatar>{{ item.username }}
+                            <v-avatar start :image="account.usernameDpScr"></v-avatar>{{ account.username }}
                         </v-card-subtitle>
                     </v-card>
                 </template>
