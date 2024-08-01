@@ -1,11 +1,13 @@
 <script setup>
 import { useChatStore } from '@/stores'
+import { ref } from 'vue'
 import ChatIconSearch from '@/components/chat/ChatIconSearch.vue'
 import ChatIconPhone from '@/components/chat/ChatIconPhone.vue'
 import ChatIconVideo from '@/components/chat/ChatIconVideo.vue'
 
 const chatStore = useChatStore()
-const messages = [
+const newMessage = ref('')
+const messages = ref([
     {
         "id": 0,
         "type": "sent",
@@ -136,7 +138,16 @@ const messages = [
         "type": "received",
         "body": "See you then. Let's go!"
     }
-]
+])
+function sendMessage() {
+    const message = {
+        "id": messages.value.length,
+        "type": "sent",
+        "body": newMessage.value,
+    }
+    messages.value.push(message)
+    newMessage.value = ''
+}
 </script>
 <template>
     <v-card height="85vh" class="overflow-auto">
@@ -165,6 +176,20 @@ const messages = [
                                 {{ message.body }}
                             </v-card-text>
                         </v-card>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <v-textarea label="Message"
+                            v-model="newMessage"
+                            rows="1"
+                            density="compact"
+                            variant="outlined"
+                            append-icon="mdi-send"
+                            auto-grow
+                            color="primary"
+                            @click:append="sendMessage"
+                        />
                     </v-col>
                 </v-row>
             </v-container>
