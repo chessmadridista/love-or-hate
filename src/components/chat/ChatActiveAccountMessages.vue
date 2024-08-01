@@ -139,7 +139,7 @@ const messages = [
 ]
 </script>
 <template>
-    <v-card height="85vh">
+    <v-card height="85vh" class="overflow-auto">
         <v-card-title class="d-flex justify-space-between">
             @{{ chatStore.selectedAccount.username }} 
             <span>
@@ -150,7 +150,7 @@ const messages = [
         </v-card-title>
         <v-card-text>
             <v-container>
-                <v-row class :class="{'justify-end': message.type === 'sent'}" v-for="message in messages" :key="message.id">
+                <v-row :class="{'justify-end': message.type === 'sent'}" v-for="message in messages" :key="message.id">
                     <v-col cols="6" v-if="message.type === 'sent'">
                         <v-card variant="flat" class="bg-primary">
                             <v-card-text>
