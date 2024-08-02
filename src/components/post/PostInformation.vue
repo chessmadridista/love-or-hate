@@ -69,7 +69,7 @@ onBeforeMount(() => {
                     <v-card-subtitle>
                         !<router-link :to="'/community/'+post.community">{{ post.community }}</router-link> | {{ post.dateCreated }} | <v-icon size="x-small" color="green">mdi-heart</v-icon>:<v-icon size="x-small" color="red">mdi-heart-broken</v-icon> = {{ post.loveToHateRatio }}
                     </v-card-subtitle>
-                    <v-card-title class="font-weight-bold">{{ post.title }}</v-card-title>
+                    <v-card-title class="font-weight-bold card__post-title">{{ post.title }}</v-card-title>
                     <v-card-text class="text-grey-darken-2">
                         {{ post.description }}
                     </v-card-text>
@@ -93,5 +93,8 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+.card__post-title {
+    white-space: unset;
 }
 </style>

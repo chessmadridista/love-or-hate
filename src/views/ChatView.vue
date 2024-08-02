@@ -5,14 +5,14 @@ import ChatActiveAccountDetails from '@/components/chat/ChatActiveAccountDetails
 </script>
 <template>
     <v-container fluid>
-        <v-row dense >
-            <v-col cols="3">
+        <v-row dense>
+            <v-col cols="12" lg="3">
                 <ChatAccounts />
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" lg="6">
                 <ChatActiveAccountMessages />
             </v-col>
-            <v-col cols="3">
+            <v-col cols="12" lg="3">
                 <ChatActiveAccountDetails />                
             </v-col>
         </v-row>

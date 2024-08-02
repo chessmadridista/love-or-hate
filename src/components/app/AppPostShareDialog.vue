@@ -1,5 +1,4 @@
 <script setup>
-import {ref} from 'vue'
 import { useGeneralStore, usePostStore } from '@/stores'
 
 const generalStore = useGeneralStore()
@@ -14,7 +13,6 @@ function copyToClipboard() {
     .catch((error) => {
         generalStore.setSnackbarMessage(error)
         generalStore.setSnackbarColor("error")
-
     })
     .finally(() => {
         generalStore.showSnackbar()

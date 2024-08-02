@@ -165,14 +165,14 @@ function sendMessage() {
         <v-card-text>
             <v-container>
                 <v-row :class="{'justify-end': message.type === 'sent'}" v-for="message in messages" :key="message.id">
-                    <v-col cols="6" v-if="message.type === 'sent'">
+                    <v-col cols="10" lg="6" v-if="message.type === 'sent'">
                         <v-card variant="flat" class="bg-primary card__message-body">
                             <v-card-text>
                                 {{ message.body }}
                             </v-card-text>
                         </v-card>
                     </v-col>
-                    <v-col cols="6" v-else class="align-center">
+                    <v-col cols="10" lg="6" v-else class="align-center">
                         <v-card variant="flat" class="bg-blue-grey-lighten-5 card__message-body">
                             <v-card-text>
                                 {{ message.body }}
