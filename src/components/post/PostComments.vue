@@ -118,7 +118,7 @@ function toggleSubComments(comment) {
 <template>
     <v-container>
         <v-row dense>
-            <v-col cols="6">
+            <v-col cols="12" lg="6">
                 <v-card>
                     <v-card-title class="bg-red text-center">
                         😒 Hate
@@ -150,7 +150,7 @@ function toggleSubComments(comment) {
                     </v-card-text>
                 </v-card>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" lg="6">
                 <v-card>
                     <v-card-title class="bg-green text-center">
                         😍 Love
