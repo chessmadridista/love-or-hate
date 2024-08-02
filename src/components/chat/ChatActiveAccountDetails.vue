@@ -16,17 +16,17 @@ const chatStore = useChatStore()
         </v-card-text>
         <v-divider></v-divider>
         <v-card-title class="text-subtitle-2 text-primary">Photos and videos</v-card-title>
-        <v-card-text>
+        <v-card-text class="text-grey">
             No media is available.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-title class="text-subtitle-2 text-primary">Shared files</v-card-title>
-        <v-card-text>
+        <v-card-text class="text-grey">
             No media is available.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-title class="text-subtitle-2 text-primary">Shared links</v-card-title>
-        <v-card-text>
+        <v-card-text class="text-grey">
             No media is available.
         </v-card-text>
     </v-card>
