@@ -151,7 +151,7 @@ function sendMessage() {
 </script>
 <template>
     <v-card height="85vh" class="overflow-auto">
-        <v-card-title class="d-flex justify-space-between">
+        <v-card-title class="d-flex justify-space-between align-center">
             <span class="text-body-2">
                 <v-avatar size="x-small" :image="chatStore.selectedAccount.usernameDpSrc"></v-avatar>
                 @{{ chatStore.selectedAccount.username }} 
