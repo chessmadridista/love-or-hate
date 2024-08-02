@@ -6,6 +6,7 @@ import PostView from '../views/PostView.vue'
 import UserView from '../views/UserView.vue'
 import GetStartedView from '../views/GetStartedView.vue'
 import CommunityView from '../views/CommunityView.vue'
+import ChatView from '../views/ChatView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/community/:communityName',
       name: 'community',
       component: CommunityView
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: ChatView
     },
   ]
 })
