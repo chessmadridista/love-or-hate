@@ -88,17 +88,13 @@ function openChat(account) {
 }
 </script>
 <template>
-    <v-card height="85vh">
+    <v-card height="85vh" class="overflow-auto">
         <v-card-text>
-            <v-virtual-scroll class="pb-2" :items="accounts" height="78vh">
-                <template v-slot:default="{ item: account }">
-                    <v-card class="py-2 mt-2" :class="{ 'bg-blue-grey-lighten-4': (selectedAccountId === account.id)}" @click="openChat(account)">
-                        <v-card-subtitle>
-                            <v-avatar start :image="account.usernameDpSrc"></v-avatar>{{ account.username }}
-                        </v-card-subtitle>
-                    </v-card>
-                </template>
-            </v-virtual-scroll>
+            <v-card v-for="account in accounts" :key="account.id" class="py-2 mt-2" :class="{ 'bg-blue-grey-lighten-4': (selectedAccountId === account.id)}" @click="openChat(account)">
+                <v-card-subtitle>
+                    <v-avatar start :image="account.usernameDpSrc"></v-avatar>{{ account.username }}
+                </v-card-subtitle>
+            </v-card>
         </v-card-text>
     </v-card>
 </template>
