@@ -152,7 +152,10 @@ function sendMessage() {
 <template>
     <v-card height="85vh" class="overflow-auto">
         <v-card-title class="d-flex justify-space-between">
-            @{{ chatStore.selectedAccount.username }} 
+            <span class="text-body-2">
+                <v-avatar size="x-small" :image="chatStore.selectedAccount.usernameDpSrc"></v-avatar>
+                @{{ chatStore.selectedAccount.username }} 
+            </span>
             <span>
                 <ChatIconSearch />
                 <ChatIconPhone />
@@ -163,15 +166,14 @@ function sendMessage() {
             <v-container>
                 <v-row :class="{'justify-end': message.type === 'sent'}" v-for="message in messages" :key="message.id">
                     <v-col cols="6" v-if="message.type === 'sent'">
-                        <v-card variant="flat" class="bg-primary">
+                        <v-card tag="pre" variant="flat" class="bg-primary">
                             <v-card-text>
                                 {{ message.body }}
                             </v-card-text>
                         </v-card>
                     </v-col>
                     <v-col cols="6" v-else class="align-center">
-                        <v-avatar size="x-small" :image="chatStore.selectedAccount.usernameDpSrc"></v-avatar>
-                        <v-card variant="flat" class="d-span bg-blue-grey-lighten-5">
+                        <v-card variant="flat" class="bg-blue-grey-lighten-5">
                             <v-card-text>
                                 {{ message.body }}
                             </v-card-text>
